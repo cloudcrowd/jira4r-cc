@@ -4,5 +4,4 @@ pkg
 .idea
 .idea/*
 *.gem
-
-
+*~

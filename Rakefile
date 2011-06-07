@@ -1,3 +1,4 @@
+# -*- mode: ruby -*-
 require 'net/http'
 require 'fileutils'
 require 'rake/clean'
@@ -22,13 +23,13 @@ require 'rake'
 require 'jeweler'
 
 Jeweler::Tasks.new do |gem|
-  gem.name = "jira4r-jh"
+  gem.name = "jira4r-gf"
   gem.homepage = "http://xircles.rubyhaus.org/projects/jira4r"
   gem.license = "Apache"
-  gem.summary = %Q{Clone of latest source from http://xircles.rubyhaus.org/projects/jira4r }
-  gem.description = %Q{the current version of jira4r is quite old. there is a newer version but there isn't a new gem for it so I am just releasing it}
-  gem.email = "jamiehollingworth@gmail.com"
-  gem.authors = ["James Stuart", "James Hollingworth"]
+  gem.summary = %Q{Updates of latest source from http://xircles.rubyhaus.org/projects/jira4r }
+  gem.description = %Q{The jira4r gem with usability tweaks and some bugfixes}
+  gem.email = "gary.foster@gmail.com"
+  gem.authors = ["James Stuart", "James Hollingworth", "Gary Foster"]
 
   gem.add_runtime_dependency 'soap4r'
   gem.add_development_dependency 'rspec', '> 1.2.3'
@@ -52,7 +53,7 @@ task :default => [:generate]
 
 desc "gets the wsdl files for JIRA services"
 task :getwsdl do
-  versions().each { |version| 
+  versions().each { |version|
     save(getWsdlFileName(version), get_file("jira.codehaus.org", "/rpc/soap/jirasoapservice-v#{version}?wsdl"))
   }
 end
@@ -87,10 +88,10 @@ task :generate do
     worker.opt['force'] = true
     worker.opt['classdef'] = "jiraService"
     worker.opt['module_path'] ="Jira4R::V#{version}"
-    
+
     worker.opt['mapping_registry'] = true
     #worker.run
-    
+
     #Create the driver
     #worker = WSDL::SOAP::WSDL2Ruby.new
     #worker.logger = logger
@@ -104,7 +105,7 @@ task :generate do
   }
 end
 
-def versions 
+def versions
  [ 2 ]
 end
 
@@ -122,8 +123,8 @@ end
 # Saves this document to the specified @var path.
 # doesn't create the file if contains markup for 404 page
 def save( path, content )
-  File::open(path, 'w') { | f | 
-    f.write( content ) 
+  File::open(path, 'w') { | f |
+    f.write( content )
   }
 end
 
@@ -134,14 +135,14 @@ end
 
 def fix_require(filename)
   content = ""
-  File.open(filename) { |io| 
+  File.open(filename) { |io|
     content = io.read()
-    
+
     content = fix_content(content, 'jiraService')
     content = fix_content(content, 'jiraServiceMappingRegistry')
   }
-  
-  File.open(filename, "w") { |io| 
+
+  File.open(filename, "w") { |io|
     io.write(content)
   }
 end
@@ -156,7 +157,7 @@ SPECS = "#{SPEC_DIR}/*_spec.rb"
 
 begin
   require 'spec/rake/spectask'
-  
+
   begin
     require 'rcov/rcovtask'
 
@@ -167,7 +168,7 @@ begin
       t.rcov_dir = "#{SPEC_DIR}/coverage"
       t.verbose = true
     end
-  
+
     desc "Generate and open coverage reports"
     task :rcov do
       system "open #{SPEC_DIR}/coverage/index.html"

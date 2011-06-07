@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{jira4r-gf}
+  s.name = %q{jira4r-cc}
   s.version = "0.4.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["James Stuart", "James Hollingworth", "Gary Foster"]
-  s.date = %q{2011-06-06}
+  s.authors = [%q{James Stuart}, %q{James Hollingworth}, %q{Gary Foster}]
+  s.date = %q{2011-06-07}
   s.description = %q{The jira4r gem with usability tweaks and some bugfixes}
-  s.email = %q{gary.foster@gmail.com}
+  s.email = %q{gary.foster@serv.io}
   s.extra_rdoc_files = [
     "LICENSE",
     "README.textile",
@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
     "README.txt",
     "Rakefile",
     "VERSION",
-    "jira4r-jh.gemspec",
+    "jira4r-cc.gemspec",
     "lib/jira4r/.DS_Store",
     "lib/jira4r/jira4r.rb",
     "lib/jira4r/jira_tool.rb",
@@ -42,9 +42,9 @@ Gem::Specification.new do |s|
     "wsdl/jirasoapservice-v2.wsdl"
   ]
   s.homepage = %q{http://xircles.rubyhaus.org/projects/jira4r}
-  s.licenses = ["Apache"]
-  s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
+  s.licenses = [%q{Apache}]
+  s.require_paths = [%q{lib}]
+  s.rubygems_version = %q{1.8.5}
   s.summary = %q{Updates of latest source from http://xircles.rubyhaus.org/projects/jira4r}
   s.test_files = [
     "spec/jira4r_spec.rb",
@@ -52,7 +52,6 @@ Gem::Specification.new do |s|
   ]
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then

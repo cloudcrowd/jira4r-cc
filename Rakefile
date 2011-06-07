@@ -23,12 +23,12 @@ require 'rake'
 require 'jeweler'
 
 Jeweler::Tasks.new do |gem|
-  gem.name = "jira4r-gf"
+  gem.name = "jira4r-cc"
   gem.homepage = "http://xircles.rubyhaus.org/projects/jira4r"
   gem.license = "Apache"
   gem.summary = %Q{Updates of latest source from http://xircles.rubyhaus.org/projects/jira4r }
   gem.description = %Q{The jira4r gem with usability tweaks and some bugfixes}
-  gem.email = "gary.foster@gmail.com"
+  gem.email = "gary.foster@serv.io"
   gem.authors = ["James Stuart", "James Hollingworth", "Gary Foster"]
 
   gem.add_runtime_dependency 'soap4r'
